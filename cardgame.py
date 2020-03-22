@@ -124,10 +124,10 @@ def IsValidPlay(idn, theCurrentplay= CurrentPlay):
     if playedcard.name == 'J' :
         return True 
     
-    if (playedcard.symbol == 'spade' or playedcard.symbol == 'clover') and currentcard.name = 'JOKER' and currentcard.symbol == 'black':
+    if (playedcard.symbol == 'spade' or playedcard.symbol == 'clover') and currentcard.name == 'JOKER' and currentcard.symbol == 'black':
         return True 
     
-    if (playedcard.symbol == 'heart' or playedcard.symbol == 'diamond') and currentcard.name = 'JOKER' and currentcard.symbol == 'red':
+    if (playedcard.symbol == 'heart' or playedcard.symbol == 'diamond') and currentcard.name == 'JOKER' and currentcard.symbol == 'red':
         return True
     
     if playedcard.name == '2' :
