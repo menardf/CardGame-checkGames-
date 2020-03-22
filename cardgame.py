@@ -102,7 +102,6 @@ def borrowCard(ToCardSet,FromCardBank=GameBank,n = 1):
         return ToCardSet
 
 def Ispenalty(playedcard, currentcard):
-    penalty = 0 
     if playedcard.name == '7':
         return 2
     if playedcard.name == 'JOKER':
@@ -130,7 +129,7 @@ def IsValidPlay(idn, theCurrentplay= CurrentPlay):
     if (playedcard.symbol == 'heart' or playedcard.symbol == 'diamond') and currentcard.name == 'JOKER' and currentcard.symbol == 'red':
         return True
     
-    if playedcard.name == '2' :
+    if playedcard.name == '2':
         return True 
     
 
