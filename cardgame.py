@@ -22,27 +22,15 @@ class Card:
         
 def createCardset():  #create a set of 54 cards objects 
     cardset = []
+    cardSymbol = ['spade', 'diamond', 'heart', 'clover']
+    cardName= ['ACE' '2', '3', '4', '5', '6', '7' ,'8' ,'9', 'J', 'K', 'Q']
+    cardID=1
     
-    cardset.append(Card('ACE','spade',1)), cardset.append(Card('2','spade',2)), cardset.append(Card('3','spade',3)),
-    cardset.append(Card('4','spade',4)), cardset.append(Card('5','spade',5)), cardset.append(Card('6','spade',6)),
-    cardset.append(Card('7','spade',7)), cardset.append(Card('8','spade',8)), cardset.append(Card('9','spade',9)),
-    cardset.append(Card('10','spade',10))
-    cardset.append(Card('ACE','diamond',11)), cardset.append(Card('2','diamond',12)), cardset.append(Card('3','diamond',13)),
-    cardset.append(Card('4','diamond',14)), cardset.append(Card('5','diamond',15)), cardset.append(Card('6','diamond',16)),
-    cardset.append(Card('7','diamond',17)), cardset.append(Card('8','diamond',18)), cardset.append(Card('9','diamond',19)),
-    cardset.append(Card('10','diamond',20))
-    cardset.append(Card('ACE','clover',21)), cardset.append(Card('2','clover',22)), cardset.append(Card('3','clover',23)),
-    cardset.append(Card('4','clover',24)), cardset.append(Card('5','clover',25)), cardset.append(Card('6','clover',26)),
-    cardset.append(Card('7','clover',27)), cardset.append(Card('8','clover',28)), cardset.append(Card('9','clover',29)),
-    cardset.append(Card('10','clover',30))
-    cardset.append(Card('ACE','heart',31)), cardset.append(Card('2','heart',32)), cardset.append(Card('3','heart',33)),
-    cardset.append(Card('4','heart',34)), cardset.append(Card('5','heart',35)), cardset.append(Card('6','heart',36)),
-    cardset.append(Card('7','heart',37)), cardset.append(Card('8','heart',38)), cardset.append(Card('9','heart',39)),
-    cardset.append(Card('10','heart',40))
-    cardset.append(Card('J','spade',41)),cardset.append(Card('K','spade',42)),cardset.append(Card('Q','spade',43)),
-    cardset.append(Card('J','diamond',44)),cardset.append(Card('K','diamond',45)),cardset.append(Card('Q','diamond',46)),
-    cardset.append(Card('J','clover',47)),cardset.append(Card('K','clover',48)),cardset.append(Card('Q','clover',49)),
-    cardset.append(Card('J','heart',50)),cardset.append(Card('K','heart',51)),cardset.append(Card('Q','heart',52)),
+    for cType in cardSymbol:
+        for cSymbol in cardName:
+            cardset.append(Card(cSymbol,cType,cardID))
+            cardID+=1
+    
     cardset.append(Card('JOKER','red',53))
     cardset.append(Card('JOKER','black',54))
 
