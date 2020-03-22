@@ -20,7 +20,7 @@ class Card:
                 CardSet.remove(card)
 
         
-def createCardset():
+def createCardset():  #create a set of 54 cards objects 
     cardset = []
     
     cardset.append(Card('ACE','spade',1)), cardset.append(Card('2','spade',2)), cardset.append(Card('3','spade',3)),
@@ -48,7 +48,7 @@ def createCardset():
 
     return cardset
 
-def printCardset( cardSet):
+def printCardset( cardSet): #print a set of card 
     for card in cardSet:
         print(card)
 
@@ -61,14 +61,14 @@ CardSet2 = []
 CurrentPlay = []
 
 
-def findIdn(Name ,Symbol, Cardset =fullSetOfCard):
+def findIdn(Name ,Symbol, Cardset =fullSetOfCard): #find the id number of a given symbol and name 
     for card in Cardset:
         if card.name == Name.upper() and card.symbol == Symbol:
             idn = card.idn
             Card = card
     return idn, Card
        
-def findCard( idn, Cardset = fullSetOfCard):
+def findCard( idn, Cardset = fullSetOfCard): #find the symbol and name of a given id in a card set 
     
     Name = None
     symbol = None
@@ -83,7 +83,7 @@ def findCard( idn, Cardset = fullSetOfCard):
     print("Card(%r,%r)"%(Name,symbol))
     return Name,symbol,Card
 
-def borrowCard(ToCardSet,FromCardBank=GameBank,n = 1):
+def borrowCard(ToCardSet,FromCardBank=GameBank,n = 1): #borrow one or more  random card from a card set and add them  to another card set 
     
     if n==1 :
         randomNumber = random.randint(0,len(FromCardBank)-1)
@@ -101,14 +101,14 @@ def borrowCard(ToCardSet,FromCardBank=GameBank,n = 1):
             i+=1
         return ToCardSet
 
-def Ispenalty(playedcard, currentcard):
+def Ispenalty(playedcard, currentcard): #determine if there is a panalty associated to a played card and return the number of cards to be borrowed 
     if playedcard.name == '7':
         return 2
     if playedcard.name == 'JOKER':
         return 4
 
 
-def IsValidPlay(idn, theCurrentplay= CurrentPlay):
+def IsValidPlay(idn, theCurrentplay= CurrentPlay): #determine if the card choosen by a play constitute a valid play 
     currentcard = theCurrentplay[-1]
     playedcard = findCard(idn)[2]
     if playedcard.name == currentcard.name or playedcard.symbol == currentcard.symbol :
@@ -141,7 +141,7 @@ print(len(GameBank))
     
 
 
-def playCard(idn ,FromCardSet , ToCardset):
+def playCard(idn ,FromCardSet , ToCardset):  # remove a specific card from a card set and add it to another card set 
     for card in FromCardSet:
         if card.idn == idn:
             card.removeCard(FromCardSet)
