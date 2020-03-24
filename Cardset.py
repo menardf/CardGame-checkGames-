@@ -116,17 +116,17 @@ def IsValidPlay(idn, theCurrentplay= CurrentPlay): #determine if the card choose
     
     if name == '2':
         return True 
-
+    return False
 
 def playCard(idn ,FromCardSet , ToCardset=CurrentPlay):  # remove a specific card from a card set and add it to another card set 
+    removedCard = None
     for card in FromCardSet:
         if card.idn == idn:
             card.removeCard(FromCardSet)
             removedCard = card
-    removedCard.addCard(ToCardset)
+            removedCard.addCard(ToCardset)
 
-
-    printCardSet(CardSet1) 
+    printCardSet(FromCardSet) 
 
 def winningState(CardSet1=CardSet1,CardSet2= CardSet2):
     win = None
@@ -145,29 +145,33 @@ turn = 0
 player1 = 0
 player2 = 1
 
-borrowCard(CardSet1,GameBank,5)
-borrowCard(CardSet2,GameBank,5)
-borrowCard(CurrentPlay)
+
 
 def chooseOption(Cardset,TocardSet = CurrentPlay):
     option = int(input('press 1 to see your card set and 2 to play your next move : '))
     if option == 1:
         printCardSet(CardSet1)
         option = 2
-    elif option == 2:
+        
+    if option == 2:
         choosenCname = input('chose a card name (A-2-10-J-Q-K) :')
         choosenCsymbol = input('chose a card symbol (spade,diamond,clover,heart) :')
         choosenCidn = findIdn(choosenCname,choosenCsymbol)[0]
         if IsValidPlay(choosenCidn):
             if not IsSpecial(choosenCidn):
+                print('')
                 playCard(choosenCidn,Cardset)
+
             else :
                 effect = IsSpecial(choosenCidn)
 
 
-
+borrowCard(CardSet1,GameBank,5)
+borrowCard(CardSet2,GameBank,5)
+borrowCard(CurrentPlay)
 
 while not GameOver:
+    
     if(turn == player1):
 
         currentCard = CurrentPlay[-1]
