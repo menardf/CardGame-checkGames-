@@ -99,7 +99,7 @@ def IsValidPlay(idn, theCurrentplay= CurrentPlay): #determine if the card choose
     if name == currentcard.name or symbol == currentcard.symbol :
         return True 
     
-    if name == 'JOKER' and symbol == 'black' and (currentcard.symbol == 'spade' or currentcard.symbol == 'clover'):
+    if (currentcard.symbol == 'spade' or currentcard.symbol == 'clover') and name == 'JOKER' and symbol == 'black'  :
         return True
     
     if name == 'JOKER' and symbol == 'red' and (currentcard.symbol == 'heart' or currentcard.symbol == 'diamond'):
@@ -150,7 +150,7 @@ player2 = 1
 def chooseOption(Cardset,TocardSet = CurrentPlay):
     option = int(input('press 1 to see your card set and 2 to play your next move : '))
     if option == 1:
-        printCardSet(CardSet1)
+        printCardSet(Cardset)
         option = 2
         
     if option == 2:
@@ -161,9 +161,16 @@ def chooseOption(Cardset,TocardSet = CurrentPlay):
             if not IsSpecial(choosenCidn):
                 print('')
                 playCard(choosenCidn,Cardset)
+                exit
 
             else :
-                effect = IsSpecial(choosenCidn)
+                effect = IsSpecial(choosenCidn)+
+
+
+
+
+                
+
 
 
 borrowCard(CardSet1,GameBank,5)
